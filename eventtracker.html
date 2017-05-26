@@ -1,0 +1,47 @@
+<html>
+	<p id="timer"></p>
+
+	<script>
+		setInterval(tracker, 1000);
+
+		function tracker() {
+		//Seed date
+		var seedDate = new Date("May 25, 2017 21:05:12");
+		//Current date
+		var currentDate = new Date();
+		//Minutes since seed date
+		var minutesSince = Math.floor(((currentDate - seedDate) / 1000) / 60);
+		//How many boss intervals have surpassed since seed date
+		var counter = Math.floor(minutesSince / 43) + 1;
+		//Amount of seconds that have passed since seed date
+		var currentTime = Math.floor((currentDate - seedDate) / 1000);
+		//How many seconds need to pass before the next boss will spawn
+		var nextBossTime = ((counter * 43) * 60);
+		var minutes = Math.floor((nextBossTime - currentTime) / 60);
+		var seconds = Math.floor((nextBossTime - currentTime) % 60);
+		var rawTime = ((minutes * 60) + seconds);
+
+		//Combine time into a concatenated string
+
+		if (rawTime >= 2400) {
+			minutes -= 40;
+			var finalTime = minutes + ":";
+			finalTime += (seconds < 10) ? ("0" + seconds) : seconds;
+			document.getElementById("timer").innerHTML = "Boss Will Spawn In: " + ((minutes * 60) + seconds) + "  |  " + finalTime;
+		}
+		else if (rawTime >= 1800 && rawTime < 2400) {
+			minutes -= 30;
+			var finalTime = minutes + ":";
+			finalTime += (seconds < 10) ? ("0" + seconds) : seconds;
+			document.getElementById("timer").innerHTML = "Event Will End In: " + ((minutes * 60) + seconds) + "  |  " + finalTime;
+		}
+		else {
+			var finalTime = minutes + ":";
+			finalTime += (seconds < 10) ? ("0" + seconds) : seconds;
+			document.getElementById("timer").innerHTML = "Announcing Boss In: " + ((minutes * 60) + seconds) + "  |  " + finalTime;
+		}
+		//1495731900
+		//1495740866
+		}
+	</script>
+</html>
