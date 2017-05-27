@@ -95,15 +95,16 @@
 
 			switch(counter % 3) {
 				case 0:
-					rowTwo.innerHTML = "<br>Location: " + ((rawTime >= 1800) ? "<b>Croxar</b>" : "<b>Aomak</b>");
+					rowTwo.innerHTML = "<br><strike>Location: " + ((rawTime >= 1800) ? "Croxar" : "Aomak");
 					break;
 				case 1:
-					rowTwo.innerHTML = "<br>Location: " + ((rawTime >= 1800) ? "<b>Aomak</b>" : "<b>Excavation</b>");
+					rowTwo.innerHTML = "<br><strike>Location: " + ((rawTime >= 1800) ? "Aomak" : "Excavation");
 					break;
 				case 2:
-					rowTwo.innerHTML = "<br>Location: " + ((rawTime >= 1800) ? "<b>Excavation</b>" : "<b>Croxar</b>");
+					rowTwo.innerHTML = "<br><strike>Location: " + ((rawTime >= 1800) ? "Excavation" : "Croxar");
 					break;
 			}
+			rowTwo += "</strike>";
 		}
 
 		function getTime() {
