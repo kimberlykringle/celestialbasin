@@ -25,6 +25,7 @@
 				text-align: center;
 				font: 11px arial;
 				background: rgba(0,0,0,0.5);
+				width: 100%;
 			}
 		</style>
 	</head>
@@ -43,7 +44,7 @@
 		<p id="notice">
 			<table id="affiliation">
 				<tr>
-					<td>Brought to you by the Lightish Reds<br><br>This site is not affiliated with Blade & Soul, NCSoft, NCWest, or any other NCSoft subsidiaries.</td>
+					<td>Brought to you by the Lightish Reds.<br>This website relies on your local computer time. Please insure your computer time is set correctly.<br>This site is not affiliated with Blade & Soul, NCSoft, NCWest, or any other NCSoft subsidiaries.</td>
 				</tr>
 			</table>
 		</p>
@@ -55,7 +56,6 @@
 		function tracker() {
 			var rowOne = document.getElementById("rowOne");
 			var rowTwo = document.getElementById("rowTwo");
-
 			//Seed date
 			var seedDate = new Date("May 25, 2017 21:05:12");
 			//Current date
@@ -103,6 +103,17 @@
 				case 2:
 					rowTwo.innerHTML = "<br>Location: " + ((rawTime >= 1800) ? "<b>Excavation</b>" : "<b>Croxar</b>");
 					break;
+			}
+		}
+
+		function getTime() {
+			var url = "https://maps.googleapis.com/maps/api/timezone/json?location=53.5444,113.4909&timestamp=1495767912000&key=AIzaSyBpprMVR41ITaH7jJqXdr1Cwwo50ylHL9Q";
+			var xml = new XMLHttpRequest();
+			xml.open('GET', url, true);
+			xml.responseType = 'json';
+			xml.onload = function() {
+				var status = xml.status;
+				(status == 200) ? callback(null, xml.response) : callback(status);
 			}
 		}
 
