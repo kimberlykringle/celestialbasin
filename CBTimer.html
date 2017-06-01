@@ -31,6 +31,10 @@
 			#rowOne {
 				line-height: 100px;
 			}
+
+			#rowTwo {
+				font: 16px arial;
+			}
 		</style>
 	</head>
 
@@ -39,6 +43,9 @@
 			<table id="mainTable">
 				<tr>
 					<td id="rowOne">Made for the Master Hong server.</td>
+				</tr>
+				<tr>
+					<td id="rowTwo">Last Synced: 6:25 PM (May 31, 2017) MST</td>
 				</tr>
 			</table>
 		</p>
@@ -58,7 +65,7 @@
 			var rowOne = document.getElementById("rowOne");
 			//var rowTwo = document.getElementById("rowTwo");
 			//Seed date
-			var seedDate = new Date("May 25, 2017 21:06:12");
+			var seedDate = new Date("May 31, 2017 18:12:28");
 			//Current date
 			var currentDate = calcTime(18);
 			//Minutes since seed date
